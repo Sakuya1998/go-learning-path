@@ -46,10 +46,30 @@
 
 ## 🚀 开始学习
 
+### 环境准备
+1. **安装Go** (1.22或更高版本): https://go.dev/dl/
+2. **克隆仓库**:
+   ```bash
+   git clone https://github.com/Sakuya1998/go-learning-path.git
+   cd go-learning-path
+   ```
+3. **安装依赖**:
+   ```bash
+   go mod download
+   ```
+
+### 学习流程
 1. 每周按顺序完成day1-day4的任务
 2. 每天提交代码到GitHub
 3. 周五进行代码审查
 4. 遇到问题及时提问
+
+### 第1周第1天快速开始
+```bash
+cd week1/day1
+go run goroutine_exercise.go
+go test -v  # 运行测试
+```
 
 ## 📚 学习资源
 
