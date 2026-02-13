@@ -1,6 +1,7 @@
 package main
 
 import (
+	"sync"
 	"testing"
 	"time"
 )
@@ -10,11 +11,11 @@ func TestBasicGoroutine(t *testing.T) {
 	// 这个测试主要验证程序能正常运行而不panic
 	// 由于goroutine是并发执行的，输出顺序不确定
 	// 所以我们只测试程序能否正常执行完成
-	
+
 	start := time.Now()
 	basicGoroutine()
 	elapsed := time.Since(start)
-	
+
 	// 确保程序在合理时间内完成（应该很快）
 	if elapsed > 2*time.Second {
 		t.Errorf("basicGoroutine执行时间过长: %v", elapsed)
@@ -26,7 +27,7 @@ func TestGoroutineWithParams(t *testing.T) {
 	start := time.Now()
 	goroutineWithParams()
 	elapsed := time.Since(start)
-	
+
 	if elapsed > 2*time.Second {
 		t.Errorf("goroutineWithParams执行时间过长: %v", elapsed)
 	}
@@ -37,7 +38,7 @@ func TestConcurrencyIssueDemo(t *testing.T) {
 	start := time.Now()
 	concurrencyIssueDemo()
 	elapsed := time.Since(start)
-	
+
 	if elapsed > 2*time.Second {
 		t.Errorf("concurrencyIssueDemo执行时间过长: %v", elapsed)
 	}
