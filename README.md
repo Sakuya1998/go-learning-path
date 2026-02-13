@@ -76,14 +76,44 @@
 3. 周五进行代码审查
 4. 遇到问题及时提问
 
-### 第1周第1天快速开始
+### 第1周学习进度
+
+#### 第1天：Goroutine基础与WaitGroup ✅ 已完成
+- 学习goroutine创建和同步
+- 掌握sync.WaitGroup使用
+- 修复数据竞争问题（Mutex和Atomic）
+- 实现goroutine池控制并发
+
 ```bash
-# 在容器内
-source setup-env.sh
 cd week1/day1
 go run goroutine_exercise.go
-go test -v  # 运行测试
+go test -v
 ```
+
+#### 第2天：Channel通信 ✅ 材料已就绪
+- Channel基础操作（创建、发送、接收）
+- 缓冲Channel与非缓冲Channel
+- select多路复用与超时控制
+- 生产者-消费者模式实现
+
+```bash
+cd week1/day2
+go run channel_basics.go
+go run select_demo.go
+go run producer_consumer.go
+```
+
+#### 第3天：Select与超时控制（待完成）
+- select高级用法
+- context包的使用
+- 超时、取消、截止时间
+- 优雅关闭goroutine
+
+#### 第4天：Worker Pool实现（待完成）
+- 工作池模式设计
+- 任务调度与负载均衡
+- 错误处理与重试机制
+- 性能优化与监控
 
 ## 📚 学习资源
 
