@@ -1,3 +1,6 @@
+//go:build example_buffered_channels
+// +build example_buffered_channels
+
 package main
 
 import (

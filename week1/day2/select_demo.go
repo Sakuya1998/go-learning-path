@@ -1,3 +1,6 @@
+//go:build example_select_demo
+// +build example_select_demo
+
 package main
 
 import (
@@ -158,7 +161,15 @@ func workerPoolWithSelect() {
 
 	// 创建工作池
 	for w := 1; w <= numWorkers; w++ {
-		go worker(w, jobs, results)
+		go func(workerID int) {
+			for job := range jobs {
+				fmt.Printf("Worker %d 开始处理工作 %d\n", workerID, job)
+				time.Sleep(time.Duration(rand.Intn(500)) * time.Millisecond)
+				result := job * 2 // 简单处理：乘以2
+				results <- result
+				fmt.Printf("Worker %d 完成工作 %d -> %d\n", workerID, job, result)
+			}
+		}(w)
 	}
 
 	// 发送工作
@@ -183,16 +194,6 @@ func workerPoolWithSelect() {
 	// 等待完成
 	<-done
 	fmt.Println("所有工作完成")
-}
-
-func worker(id int, jobs <-chan int, results chan<- int) {
-	for job := range jobs {
-		fmt.Printf("Worker %d 开始处理工作 %d\n", id, job)
-		time.Sleep(time.Duration(rand.Intn(500)) * time.Millisecond)
-		result := job * 2 // 简单处理：乘以2
-		results <- result
-		fmt.Printf("Worker %d 完成工作 %d -> %d\n", id, job, result)
-	}
 }
 
 func main() {

@@ -1,3 +1,6 @@
+//go:build example_pipeline_pattern
+// +build example_pipeline_pattern
+
 package main
 
 import (
@@ -139,7 +142,7 @@ func parallelPipeline() {
 	const numWorkers = 4
 	for i := 0; i < numWorkers; i++ {
 		wg.Add(1)
-		go worker(i, numbers, results, &wg)
+		go pipelineWorker(i, numbers, results, &wg)
 	}
 	
 	// 等待所有worker完成
@@ -158,8 +161,8 @@ func parallelPipeline() {
 	fmt.Printf("结果: %v\n", allResults)
 }
 
-// worker 并行处理worker
-func worker(id int, in <-chan int, out chan<- int, wg *sync.WaitGroup) {
+// pipelineWorker 并行处理worker（专用于Pipeline模式）
+func pipelineWorker(id int, in <-chan int, out chan<- int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	
 	for num := range in {

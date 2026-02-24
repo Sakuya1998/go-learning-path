@@ -1,3 +1,6 @@
+//go:build example_producer_consumer
+// +build example_producer_consumer
+
 package main
 
 import (

@@ -1,3 +1,6 @@
+//go:build !example_channel_basics && !example_buffered_channels && !example_select_demo && !example_producer_consumer && !example_pipeline_pattern
+// +build !example_channel_basics,!example_buffered_channels,!example_select_demo,!example_producer_consumer,!example_pipeline_pattern
+
 package main
 
 import (
@@ -389,10 +392,12 @@ func fanIn(inputs ...<-chan int) <-chan int {
 
 func main() {
 	fmt.Println("第1周第2天: Channel练习题目")
-	fmt.Println("===========================\n")
+	fmt.Println("===========================")
+	fmt.Println()
 
 	fmt.Println("说明：这些练习需要你动手实现")
-	fmt.Println("先尝试自己完成，然后再查看参考答案\n")
+	fmt.Println("先尝试自己完成，然后再查看参考答案")
+	fmt.Println()
 
 	// 列出所有练习
 	exercise1()

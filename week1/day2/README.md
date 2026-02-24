@@ -110,14 +110,39 @@ default:
 
 ## 🚀 开始学习
 
-运行基础示例：
+### 方法1: 使用统一选择器（推荐）
 ```bash
 cd week1/day2
-go run channel_basics.go
+go run main.go
+```
+然后按照菜单选择要运行的示例。
+
+### 方法2: 直接运行特定示例
+```bash
+cd week1/day2
+
+# 运行Channel基础示例
+go run -tags example_channel_basics channel_basics.go
+
+# 运行缓冲Channel实验
+go run -tags example_buffered_channels buffered_channels.go
+
+# 运行select多路复用
+go run -tags example_select_demo select_demo.go
+
+# 运行生产者-消费者模式
+go run -tags example_producer_consumer producer_consumer.go
+
+# 运行Pipeline模式
+go run -tags example_pipeline_pattern pipeline_pattern.go
+
+# 运行练习题目（不需要标签）
+go run exercises.go
 ```
 
-完成练习后运行测试：
+### 方法3: 运行测试
 ```bash
+cd week1/day2
 go test -v
 ```
 

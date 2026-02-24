@@ -1,3 +1,6 @@
+//go:build example_channel_basics
+// +build example_channel_basics
+
 package main
 
 import (
